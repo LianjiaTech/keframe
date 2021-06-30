@@ -7,7 +7,6 @@ import 'notification.dart';
 /// @date     5/7/21 2:13 PM
 /// @desc    <int,Size> > Cache child node information
 class SizeCacheWidget extends StatefulWidget {
-
   final Widget child;
 
   /// Estimate the number of children on the screen, which is used to set the size of the frame queue
@@ -26,7 +25,6 @@ class SizeCacheWidget extends StatefulWidget {
 }
 
 class _SizeCacheWidgetState extends State<SizeCacheWidget> {
-
   /// Stores the Size of the child node's report
   Map<int, Size> itemsSizeCache = <int, Size>{};
 

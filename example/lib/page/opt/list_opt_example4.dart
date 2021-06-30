@@ -78,8 +78,8 @@ class _ComplexListOptExample4State extends State<ComplexListOptExample4> {
               RaisedButton(
                   onPressed: () {
                     scrollController.animateTo(scrollPos,
-                        duration: Duration(
-                            milliseconds: scrollPos == 0 ? 1500 : 600),
+                        duration:
+                            Duration(milliseconds: scrollPos == 0 ? 1500 : 600),
                         curve: Curves.easeInOut);
                     scrollPos = scrollPos >= 6000 ? 0 : scrollPos + 1500;
                     setState(() {});
