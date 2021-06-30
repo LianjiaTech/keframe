@@ -17,7 +17,7 @@ Language: English | [中文简体](README-ZH.md)
 
 Optimize for build caton by framing, such as scenes with complex lists scrolling quickly.
 
-The following is Example running in VIVO X23 (Snapdragon 660).  Comparison of collected data indicators before and after optimization of 200 frames under the same operation (The demo is at the end of the article)
+The following is [Example](app-profile.apk)(you can download it directly) running in VIVO X23 (Snapdragon 660).  Comparison of collected data indicators before and after optimization of 200 frames under the same operation (The demo is at the end of the article)
 
 | Before optimization | after optimization |
 | --- | --- |
@@ -243,11 +243,12 @@ Combined with alibaba related articles and my use experience, frame is more suit
 
 ***
 
+### If you have any questions, please feel free to contact me. If this inspires you, dont forget start ✨✨✨✨ Thanks
+
 ### Before and after optimization demo
 
 | Before optimization | After optimization |
 | --- | --- |
 | ![优化前](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f20f593cc144b72a1df4bdae57a165c~tplv-k3u1fbpfcp-watermark.image) | ![优化后](https://user-images.githubusercontent.com/40540394/123905087-3c08b680-d9a4-11eb-9485-4cdf21c38ad2.gif) |
 
-### If this inspires you, dont forget start ✨✨✨✨ Thanks
 
