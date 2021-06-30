@@ -1,6 +1,17 @@
 # Flutter fluency optimization component "Keframe"
 
-[TOC]
+  + [Page switching fluency improved:](#page-switching-fluency-improved)
+  * [How to use](#how-to-use)
+    + [Project depend on:](#project-depend-on)
+    + [Instructions:](#instructions)
+      - [1. The actual item size in the list is known](#1-the-actual-item-size-in-the-list-is-known)
+      - [2. The actual item height in the list is unknown](#2-the-actual-item-height-in-the-list-is-unknown)
+      - [3. Estimate the number of items in a screen](#3-estimate-the-number-of-items-in-a-screen)
+      - [4. Non-list scenarios](#4-non-list-scenarios)
+  + [Constructor Description:](#constructor-description)
+  + [The cost of framing](#the-cost-of-framing)
+  + [Before and after optimization demo](#before-and-after-optimization-demo)
+
 
 Language: English | [中文简体](README-ZH.md)
 
@@ -11,7 +22,6 @@ The following is Example running in VIVO X23 (Snapdragon 660).  Comparison of co
 | Before optimization | after optimization |
 | --- | --- |
 | <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4233166557ec4b4da0133fe8a9b17325~tplv-k3u1fbpfcp-watermark.image" alt="优化前" style="zoom:50%;" /> | <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6db4a156eaa14bb8b6acb27549788b63~tplv-k3u1fbpfcp-watermark.image" alt="优化后" style="zoom:50%;" /> |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 Monitoring tools from:  [fps_monitor](https://github.com/Nayuta403/fps_monitor),  the index for details: [Debugging artifact out-of-the-box](https://juejin.cn/post/6947911434424549384)
 
@@ -32,7 +42,7 @@ After using frame splitting optimization, the number of caton decreased from an 
 
 ****
 
-###  Page switching fluency improved:
+###  Page switching fluency improved
 
 When a new page is pushed, the system will render the entire page with animation to complete the page switch. At this point, if the page is too complex, there will also be a page switching caton.
 
@@ -45,7 +55,7 @@ With the framing component, the page build is disassembled frame by frame and vi
 
 ## How to use
 
-### Project depend on：
+### Project depend on
 
 Add a dependency on `keframe` to `pubspec.yaml`
 
@@ -56,9 +66,9 @@ dependencies:
 
 Components distinguish only the normal and  null-safe versions
 
-The normal version uses :
+The normal version uses : 1.0.0
 
-The null-safe version uses ：
+The null-safe version uses ：2.0.0
 
 ### Instructions:
 
