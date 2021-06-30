@@ -17,6 +17,11 @@
    
 Language: English | [中文简体](README-ZH.md)
 
+[![null-safe](https://img.shields.io/badge/nullsafe-2.0.0-brightgreen)](https://pub.dev/packages/keframe)
+[![null-safe](https://img.shields.io/badge/normal-1.0.1-brightgreen)](https://pub.dev/packages/keframe)
+[![GitHub stars](https://img.shields.io/github/stars/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/stargazers)
+[![GitHub license](https://img.shields.io/github/license/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/blob/master/LICENSE)
+
 Optimize for caton caused by builds, such as page switches or rapid scrolling of complex lists, through frame-splitting rendering.
 
 The following is [Example](app-profile.apk)(you can download it directly) running in VIVO X23 (Snapdragon 660).  Comparison of collected data indicators before and after optimization of 200 frames under the same operation (The demo is at the end of the article)

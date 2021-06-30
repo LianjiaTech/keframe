@@ -2,7 +2,6 @@
 
 ![image](https://user-images.githubusercontent.com/40540394/123200939-50503d80-d4e4-11eb-8db0-afcc3c32423a.png)
 
-Language: [English](README.md) | 中文简体
 
    + [列表流畅度优化](#列表流畅度优化)
    + [页面切换流畅度提升：](#页面切换流畅度提升)
@@ -18,6 +17,13 @@ Language: [English](README.md) | 中文简体
    + [分帧的成本](#分帧的成本)
    + [优化前后对比演示](#优化前后对比演示)
    + [相关原理分析：](#相关原理分析)
+   
+Language: [English](README.md) | 中文简体
+
+[![null-safe](https://img.shields.io/badge/nullsafe-2.0.0-brightgreen)](https://pub.dev/packages/keframe)
+[![null-safe](https://img.shields.io/badge/normal-1.0.1-brightgreen)](https://pub.dev/packages/keframe)
+[![GitHub stars](https://img.shields.io/github/stars/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/stargazers)
+[![GitHub license](https://img.shields.io/github/license/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/blob/master/LICENSE)
 
 ### 列表流畅度优化
 
