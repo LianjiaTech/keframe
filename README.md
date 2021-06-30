@@ -3,14 +3,15 @@
   + [Page switching fluency improved:](#page-switching-fluency-improved)
   * [How to use](#how-to-use)
     + [Project depend on:](#project-depend-on)
-    + [Instructions:](#instructions)
-      - [1. The actual item size in the list is known](#1-the-actual-item-size-in-the-list-is-known)
-      - [2. The actual item height in the list is unknown](#2-the-actual-item-height-in-the-list-is-unknown)
-      - [3. Estimate the number of items in a screen](#3-estimate-the-number-of-items-in-a-screen)
-      - [4. Non-list scenarios](#4-non-list-scenarios)
-  + [Constructor Description:](#constructor-description)
-  + [The cost of framing](#the-cost-of-framing)
-  + [Before and after optimization demo](#before-and-after-optimization-demo)
+  * [Instructions:](#instructions)
+    + [1. The actual item size in the list is known](#1-the-actual-item-size-in-the-list-is-known)
+    + [2. The actual item height in the list is unknown](#2-the-actual-item-height-in-the-list-is-unknown)
+    + [3. Estimate the number of items in a screen](#3-estimate-the-number-of-items-in-a-screen)
+    + [4. Non-list scenarios](#4-non-list-scenarios)
+  * [Constructor Description:](#constructor-description)
+  * [The cost of framing](#the-cost-of-framing)
+  * [Before and after optimization demo](#before-and-after-optimization-demo)
+
 
 
 Language: English | [中文简体](README-ZH.md)
@@ -23,7 +24,7 @@ The following is Example running in VIVO X23 (Snapdragon 660).  Comparison of co
 | --- | --- |
 | <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4233166557ec4b4da0133fe8a9b17325~tplv-k3u1fbpfcp-watermark.image" alt="优化前" style="zoom:50%;" /> | <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6db4a156eaa14bb8b6acb27549788b63~tplv-k3u1fbpfcp-watermark.image" alt="优化后" style="zoom:50%;" /> |
 
-Monitoring tools from:  [fps_monitor](https://github.com/Nayuta403/fps_monitor),  the index for details: [Debugging artifact out-of-the-box](https://juejin.cn/post/6947911434424549384)
+Monitoring tools from:  [fps_monitor](https://github.com/Nayuta403/fps_monitor),  the index for details: [fps_info](https://juejin.cn/post/6947911434424549384)
 
 - Fluency: FPS greater than 55, which means less than 18ms per frame
 - Good: FPS between 30-55, i.e. 18ms-33ms per frame
@@ -32,7 +33,7 @@ Monitoring tools from:  [fps_monitor](https://github.com/Nayuta403/fps_monitor),
 
 After using frame splitting optimization, the number of caton decreased from an average of 33.3 frames to only one in 200 frames, and the slight caton decreased from 188ms to 90ms. The phenomenon of caton is greatly reduced, the proportion of fluid frames is significantly increased, and the overall performance is smoother. Below are the details.
 
-|                                                  | Before optimization | after optimization |
+|                                                  | Before optimization | After optimization |
 | ------------------------------------------------ | ------------------- | ------------------ |
 | The average number of frames appears a caton     | 33.3                | 200                |
 | The average number of frames with a slight caton | 8.6                 | 66.7               |
@@ -66,9 +67,9 @@ dependencies:
 
 Components distinguish only the normal and  null-safe versions
 
-The normal version uses : 1.0.0
+The normal version uses : `1.0.0`
 
-The null-safe version uses ：2.0.0
+The null-safe version uses ：`2.0.0`
 
 ### Instructions:
 
@@ -169,8 +170,7 @@ SizeCacheWidget(
 
 The actual effect is as follows:
 
-<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f33ddd7d9de4e369b0e457f84171cc8~tplv-k3u1fbpfcp-watermark.image" alt="Screenrecording_20210611_194905.gif" style="zoom:50%;" />
-
+<img src="https://user-images.githubusercontent.com/40540394/123904966-fa780b80-d9a3-11eb-9afe-c1023e265a75.gif" alt="Screenrecording_20210611_194905.gif" style="zoom:50%;" />
 
 
 #### 3. Estimate the number of items in a screen
@@ -191,7 +191,7 @@ In addition, you can also nest animations such as transparency/displacement on i
 
 The actual effect is as follows:
 
-| ![Screenrecording_20210315_133310.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb7d1361ae7842df954bb1c559e2ec54~tplv-k3u1fbpfcp-watermark.image) | ![Screenrecording_20210315_133848.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ee6827f7eed4463a1a8a5b00a58fd6e~tplv-k3u1fbpfcp-watermark.image) |
+| ![Screenrecording_20210315_133310.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb7d1361ae7842df954bb1c559e2ec54~tplv-k3u1fbpfcp-watermark.image) | ![Screenrecording_20210315_133848.gif](https://user-images.githubusercontent.com/40540394/123905372-c9e4a180-d9a4-11eb-94d0-4190710828f5.gif) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 #### 4. Non-list scenarios
@@ -246,7 +246,6 @@ Combined with alibaba related articles and my use experience, frame is more suit
 
 ### Before and after optimization demo
 
-| Before optimization | after optimization |
+| Before optimization | After optimization |
 | --- | --- |
-| ![优化前](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f20f593cc144b72a1df4bdae57a165c~tplv-k3u1fbpfcp-watermark.image) | ![优化后](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05aea6de421545b9bbf868c344a9afe9~tplv-k3u1fbpfcp-watermark.image) |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![优化前](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f20f593cc144b72a1df4bdae57a165c~tplv-k3u1fbpfcp-watermark.image) | ![优化后](https://user-images.githubusercontent.com/40540394/123905087-3c08b680-d9a4-11eb-9485-4cdf21c38ad2.gif) |
