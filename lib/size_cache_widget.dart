@@ -13,10 +13,10 @@ class SizeCacheWidget extends StatefulWidget {
   /// Optimizes the list of items on the current screen for delayed response in fast scrolling scenarios
   final int estimateCount;
 
-  const SizeCacheWidget({Key key, @required this.child, this.estimateCount = 0})
+  const SizeCacheWidget({Key? key, required this.child, this.estimateCount = 0})
       : super(key: key);
 
-  static _SizeCacheWidgetState of(BuildContext context) {
+  static _SizeCacheWidgetState? of(BuildContext context) {
     return context.findAncestorStateOfType<_SizeCacheWidgetState>();
   }
 
@@ -26,7 +26,7 @@ class SizeCacheWidget extends StatefulWidget {
 
 class _SizeCacheWidgetState extends State<SizeCacheWidget> {
   /// Stores the Size of the child node's report
-  Map<int, Size> itemsSizeCache = <int, Size>{};
+  Map<int?, Size> itemsSizeCache = <int?, Size>{};
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _SizeCacheWidgetState extends State<SizeCacheWidget> {
     return Builder(
       builder: (ctx) {
         return NotificationListener(
-          onNotification: (notification) {
+          onNotification: (dynamic notification) {
             if (notification is LayoutInfoNotification) {
               logcat(
                   "size info :  index = ${notification.index}  size = ${notification.size.toString()}");
@@ -60,19 +60,19 @@ class _SizeCacheWidgetState extends State<SizeCacheWidget> {
     );
   }
 
-  void saveLayoutInfo(int index, Size size) {
+  void saveLayoutInfo(int? index, Size size) {
     itemsSizeCache[index] = size;
   }
 
   void setSeparateFramingTaskQueue() {
     if (widget.estimateCount != 0) {
-      FrameSeparateTaskQueue.instance.maxTaskSize = widget.estimateCount;
+      FrameSeparateTaskQueue.instance!.maxTaskSize = widget.estimateCount;
     }
   }
 
   @override
   void dispose() {
-    FrameSeparateTaskQueue.instance.resetMaxTaskSize();
+    FrameSeparateTaskQueue.instance!.resetMaxTaskSize();
     super.dispose();
   }
 }

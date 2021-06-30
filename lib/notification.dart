@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 /// @date     5/7/21 2:12 PM
 class LayoutInfoNotification extends Notification {
   final Size size;
-  final int index;
+  final int? index;
 
   LayoutInfoNotification(this.index, this.size);
 }

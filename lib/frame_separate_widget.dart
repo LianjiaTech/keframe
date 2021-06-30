@@ -13,15 +13,15 @@ class FrameSeparateWidget extends StatefulWidget {
   final Widget child;
 
   /// The placeholder widget sets components that are as close to the actual widget as possible
-  final Widget placeHolder;
+  final Widget? placeHolder;
 
   /// Identifies its own ID, used in a scenario where size information is stored
-  final int index;
+  final int? index;
 
   const FrameSeparateWidget({
-    Key key,
+    Key? key,
     this.index,
-    @required this.child,
+    required this.child,
     this.placeHolder,
   }) : super(key: key);
 
@@ -30,7 +30,7 @@ class FrameSeparateWidget extends StatefulWidget {
 }
 
 class _FrameSeparateWidgetState extends State<FrameSeparateWidget> {
-  Widget result;
+  Widget? result;
 
   @override
   void initState() {
@@ -39,8 +39,8 @@ class _FrameSeparateWidgetState extends State<FrameSeparateWidget> {
         Container(
           height: 20,
         );
-    Map<int, Size> size = SizeCacheWidget.of(context)?.itemsSizeCache;
-    Size itemSize;
+    Map<int?, Size>? size = SizeCacheWidget.of(context)?.itemsSizeCache;
+    Size? itemSize;
     if (size != null && size.containsKey(widget.index)) {
       itemSize = size[widget.index];
       logcat("cache hit：${widget.index} ${itemSize.toString()}");
@@ -67,8 +67,8 @@ class _FrameSeparateWidgetState extends State<FrameSeparateWidget> {
   }
 
   void transformWidget() {
-    SchedulerBinding.instance.addPostFrameCallback((t) {
-      FrameSeparateTaskQueue.instance.scheduleTask(() {
+    SchedulerBinding.instance!.addPostFrameCallback((t) {
+      FrameSeparateTaskQueue.instance!.scheduleTask(() {
         if (mounted)
           setState(() {
             result = widget.child;

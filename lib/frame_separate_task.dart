@@ -23,9 +23,9 @@ class FrameSeparateTaskQueue {
 
   FrameSeparateTaskQueue._();
 
-  static FrameSeparateTaskQueue _instance;
+  static FrameSeparateTaskQueue? _instance;
 
-  static FrameSeparateTaskQueue get instance {
+  static FrameSeparateTaskQueue? get instance {
     if (_instance == null) _instance = FrameSeparateTaskQueue._();
     return _instance;
   }
@@ -40,12 +40,12 @@ class FrameSeparateTaskQueue {
     if (_taskQueue.isEmpty) return false;
     final TaskEntry<dynamic> entry = _taskQueue.first;
     if (schedulingStrategy(
-        priority: entry.priority, scheduler: SchedulerBinding.instance)) {
+        priority: entry.priority, scheduler: SchedulerBinding.instance!)) {
       try {
         _taskQueue.removeFirst();
         entry.run();
       } catch (exception, exceptionStack) {
-        StackTrace callbackStack;
+        StackTrace? callbackStack;
         assert(() {
           callbackStack = entry.debugStack;
           return true;
@@ -77,7 +77,7 @@ class FrameSeparateTaskQueue {
     assert(_taskQueue.isNotEmpty);
     if (_hasRequestedAnEventLoopCallback) return;
     _hasRequestedAnEventLoopCallback = true;
-    await SchedulerBinding.instance.endOfFrame;
+    await SchedulerBinding.instance!.endOfFrame;
     _runTasks();
   }
 
@@ -99,7 +99,7 @@ class FrameSeparateTaskQueue {
   }
 
   Future<T> scheduleTask<T>(TaskCallback<T> task, Priority priority,
-      {String debugLabel, Flow flow, int id}) {
+      {String? debugLabel, Flow? flow, int? id}) {
     final TaskEntry<T> entry =
         TaskEntry<T>(task, priority.value, debugLabel, flow, id: id);
     _addTask(entry);
@@ -132,11 +132,11 @@ class TaskEntry<T> {
 
   final TaskCallback<T> task;
   final int priority;
-  final String debugLabel;
-  final Flow flow;
-  final int id;
-  StackTrace debugStack;
-  Completer<T> completer;
+  final String? debugLabel;
+  final Flow? flow;
+  final int? id;
+  StackTrace? debugStack;
+  late Completer<T> completer;
 
   void run() {
     if (!kReleaseMode) {
@@ -145,7 +145,7 @@ class TaskEntry<T> {
         () {
           completer.complete(task());
         },
-        flow: flow != null ? Flow.step(flow.id) : null,
+        flow: flow != null ? Flow.step(flow!.id) : null,
       );
     } else {
       completer.complete(task());
