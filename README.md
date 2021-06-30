@@ -13,7 +13,6 @@
   * [Before and after optimization demo](#before-and-after-optimization-demo)
 
 
-
 Language: English | [中文简体](README-ZH.md)
 
 Optimize for build caton by framing, such as scenes with complex lists scrolling quickly.
@@ -249,3 +248,6 @@ Combined with alibaba related articles and my use experience, frame is more suit
 | Before optimization | After optimization |
 | --- | --- |
 | ![优化前](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f20f593cc144b72a1df4bdae57a165c~tplv-k3u1fbpfcp-watermark.image) | ![优化后](https://user-images.githubusercontent.com/40540394/123905087-3c08b680-d9a4-11eb-9485-4cdf21c38ad2.gif) |
+
+### If this inspires you, dont forget start ✨✨✨✨ Thanks
+
