@@ -6,7 +6,7 @@ Language: [English](README.md) | 中文简体
 
 通过分帧渲染优化由构建导致的卡顿，例如一些复杂列表快速滚动的场景。
 
-代码中 example 运行在 VIVO X23（骁龙 660），相同操作下优化前后 200 帧采集数据指标对比（gif 在文章最后）：
+代码中 [example](app-profile.apk)(可以直接下载运行) 运行在 VIVO X23（骁龙 660），相同操作下优化前后 200 帧采集数据指标对比（gif 在文章最后）：
 
 | 优化前 |  优化后 |
 | --- | --- |
@@ -155,7 +155,7 @@ SizeCacheWidget(
 
 实际效果如下：
 
-<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f33ddd7d9de4e369b0e457f84171cc8~tplv-k3u1fbpfcp-watermark.image" alt="Screenrecording_20210611_194905.gif" style="zoom:50%;" />
+<img src="https://user-images.githubusercontent.com/40540394/123904966-fa780b80-d9a3-11eb-9afe-c1023e265a75.gif" alt="Screenrecording_20210611_194905.gif" style="zoom:50%;" />
 
 
 
@@ -175,7 +175,7 @@ SizeCacheWidget(
 
 效果如下图：
 
-| ![Screenrecording_20210315_133310.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb7d1361ae7842df954bb1c559e2ec54~tplv-k3u1fbpfcp-watermark.image) | ![Screenrecording_20210315_133848.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6ee6827f7eed4463a1a8a5b00a58fd6e~tplv-k3u1fbpfcp-watermark.image) |
+| ![Screenrecording_20210315_133310.gif](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bb7d1361ae7842df954bb1c559e2ec54~tplv-k3u1fbpfcp-watermark.image) | ![Screenrecording_20210315_133848.gif](https://user-images.githubusercontent.com/40540394/123905372-c9e4a180-d9a4-11eb-94d0-4190710828f5.gif) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 #### 4、非列表场景
@@ -223,12 +223,12 @@ SizeCacheWidget：缓存子节点中，分帧组件嵌套的**实际 widget 的�
 结合闲鱼相关文章和我的使用经验来看，分帧比较适合一些复杂，存在流畅度问题的场景。
 
 ***
-
+### 如果对此有任何问题，欢迎与我联系；如果对你有所启发，不要忘了 start ✨✨✨✨ Thanks~
 ### 优化前后对比演示 
 
 注：gif 帧率只有20
 
 | 优化前 |  优化后 |
 | --- | --- |
-| ![优化前](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f20f593cc144b72a1df4bdae57a165c~tplv-k3u1fbpfcp-watermark.image) | ![优化后](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/05aea6de421545b9bbf868c344a9afe9~tplv-k3u1fbpfcp-watermark.image) |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![优化前](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2f20f593cc144b72a1df4bdae57a165c~tplv-k3u1fbpfcp-watermark.image) | ![优化后](https://user-images.githubusercontent.com/40540394/123905087-3c08b680-d9a4-11eb-9485-4cdf21c38ad2.gif) |
+
