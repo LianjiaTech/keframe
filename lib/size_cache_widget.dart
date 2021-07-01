@@ -44,15 +44,12 @@ class _SizeCacheWidgetState extends State<SizeCacheWidget> {
   Widget build(BuildContext context) {
     return Builder(
       builder: (ctx) {
-        return NotificationListener(
-          onNotification: (dynamic notification) {
-            if (notification is LayoutInfoNotification) {
-              logcat(
-                  "size info :  index = ${notification.index}  size = ${notification.size.toString()}");
-              saveLayoutInfo(notification.index, notification.size);
-              return true;
-            }
-            return false;
+        return NotificationListener<LayoutInfoNotification>(
+          onNotification: (LayoutInfoNotification notification) {
+            logcat(
+                "size info :  index = ${notification.index}  size = ${notification.size.toString()}");
+            saveLayoutInfo(notification.index, notification.size);
+            return true;
           },
           child: widget.child,
         );
