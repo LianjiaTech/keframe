@@ -37,6 +37,7 @@ class FrameSeparateTaskQueue {
   int get taskLength => _taskQueue.length;
 
   Future<bool> handleEventLoopCallback() async {
+    logcat('FrameSeparateTaskQueue.handleEventLoopCallback started');
     if (_taskQueue.isEmpty) return false;
     final TaskEntry<dynamic> entry = _taskQueue.first;
     if (schedulingStrategy(
@@ -74,6 +75,8 @@ class FrameSeparateTaskQueue {
 
   // Ensures that the scheduler services a task scheduled by [scheduleTask].
   void _ensureEventLoopCallback() async {
+    logcat(
+        'FrameSeparateTaskQueue._ensureEventLoopCallback started $_hasRequestedAnEventLoopCallback ${_taskQueue.length}');
     assert(_taskQueue.isNotEmpty);
     if (_hasRequestedAnEventLoopCallback) return;
     _hasRequestedAnEventLoopCallback = true;
@@ -83,6 +86,8 @@ class FrameSeparateTaskQueue {
 
   // Scheduled by _ensureEventLoopCallback.
   void _runTasks() async {
+    logcat(
+        'FrameSeparateTaskQueue._runTasks started $_hasRequestedAnEventLoopCallback ${_taskQueue.length} ');
     _hasRequestedAnEventLoopCallback = false;
     bool result = await handleEventLoopCallback();
     if (result)
@@ -108,8 +113,9 @@ class FrameSeparateTaskQueue {
   }
 
   void _addTask(TaskEntry _taskEntry) {
+    logcat('FrameSeparateTaskQueue._addTask started');
     if (maxTaskSize != 0 && _taskQueue.length >= maxTaskSize) {
-      logcat('remove Task');
+      logcat('FrameSeparateTaskQueue._addTask remove Task');
       _taskQueue.removeFirst();
     }
     _taskQueue.add(_taskEntry);
