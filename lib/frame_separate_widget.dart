@@ -34,6 +34,8 @@ class _FrameSeparateWidgetState extends State<FrameSeparateWidget> {
 
   @override
   void initState() {
+    logcat(
+        '_FrameSeparateWidgetState.initState started ${widget.index} $result');
     super.initState();
     result = widget.placeHolder ??
         Container(
@@ -57,23 +59,38 @@ class _FrameSeparateWidgetState extends State<FrameSeparateWidget> {
 
   @override
   void didUpdateWidget(FrameSeparateWidget oldWidget) {
+    logcat(
+        '_FrameSeparateWidgetState.didUpdateWidget started ${widget.index} $result');
     super.didUpdateWidget(oldWidget);
     transformWidget();
   }
 
   @override
   Widget build(BuildContext context) {
+    logcat('_FrameSeparateWidgetState.build started ${widget.index} $result');
     return ItemSizeInfoNotifier(index: widget.index, child: result);
   }
 
   void transformWidget() {
+    logcat(
+        '_FrameSeparateWidgetState.transformWidget started ${widget.index} $result');
     SchedulerBinding.instance.addPostFrameCallback((t) {
+      logcat(
+          '_FrameSeparateWidgetState.transformWidget addPostFrameCallback started ${widget.index} $result');
       FrameSeparateTaskQueue.instance.scheduleTask(() {
+        logcat(
+            '_FrameSeparateWidgetState.transformWidget scheduleTask started ${widget.index} $result');
         if (mounted)
           setState(() {
             result = widget.child;
           });
       }, Priority.animation, id: widget.index);
     });
+  }
+
+  @override
+  void dispose() {
+    logcat('_FrameSeparateWidgetState.dispose started ${widget.index} $result');
+    super.dispose();
   }
 }
