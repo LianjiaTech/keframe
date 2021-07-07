@@ -22,7 +22,7 @@ Language: English | [中文简体](README-ZH.md)
 [![GitHub stars](https://img.shields.io/github/stars/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/stargazers)
 [![GitHub license](https://img.shields.io/github/license/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/blob/master/LICENSE)
 
-Optimize for caton caused by builds, such as page switches or rapid scrolling of complex lists, through frame-splitting rendering.
+Optimize for lag caused by builds, such as page switches or rapid scrolling of complex lists, through frame-splitting rendering.
 
 The following is [Example](app-profile.apk)(you can download it directly) running in VIVO X23 (Snapdragon 660).  Comparison of collected data indicators before and after optimization of 200 frames under the same operation (The demo is at the end of the article)
 
@@ -34,15 +34,15 @@ Monitoring tools from:  [fps_monitor](https://github.com/Nayuta403/fps_monitor)
 
 - Fluency: FPS greater than 55, which means less than 18ms per frame
 - Good: FPS between 30-55, i.e. 18ms-33ms per frame
-- Slight caton: FPS between 15-30, i.e. 33ms-67ms per frame
+- Slight lag: FPS between 15-30, i.e. 33ms-67ms per frame
 - Caton: FPS less than 15, which means a frame time greater than 66.7ms
 
-After using frame splitting optimization, the number of caton decreased from an average of 33.3 frames to only one in 200 frames, and the slight caton decreased from 188ms to 90ms. The phenomenon of caton is greatly reduced, the proportion of fluid frames is significantly increased, and the overall performance is smoother. Below are the details.
+After using frame splitting optimization, the number of lag decreased from an average of 33.3 frames to only one in 200 frames, and the slight lag decreased from 188ms to 90ms. The phenomenon of lag is greatly reduced, the proportion of fluid frames is significantly increased, and the overall performance is smoother. Below are the details.
 
 |                                                  | Before optimization | after optimization |
 | ------------------------------------------------ | ------------------- | ------------------ |
-| The average number of frames appears a caton     | 33.3                | 200                |
-| The average number of frames with a slight caton | 8.6                 | 66.7               |
+| The average number of frames appears a lag     | 33.3                | 200                |
+| The average number of frames with a slight lag | 8.6                 | 66.7               |
 | Most time consuming                              | 188.0ms             | 90.0ms             |
 | The average time                                 | 27.0ms              | 19.4ms             |
 | Fluency frame ratio                              | 40%                 | 64.5%              |
@@ -241,7 +241,7 @@ The actual effect is as follows:
 
 #### 4. Non-list scenarios
 
-For non-list scenarios, there are generally no fluency issues, but there can still be a caton on first entry.
+For non-list scenarios, there are generally no fluency issues, but there can still be a lag on first entry.
 
 Similarly, complex modules can be rendered in different frames to avoid first-time entry delays.
 
