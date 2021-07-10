@@ -77,13 +77,15 @@ class FrameSeparateTaskQueue {
     assert(_taskQueue.isNotEmpty);
     if (_hasRequestedAnEventLoopCallback) return;
     _hasRequestedAnEventLoopCallback = true;
-    await SchedulerBinding.instance!.endOfFrame;
-    _runTasks();
+    Timer.run(() {
+      _runTasks();
+    });
   }
 
   // Scheduled by _ensureEventLoopCallback.
   void _runTasks() async {
     _hasRequestedAnEventLoopCallback = false;
+    await SchedulerBinding.instance!.endOfFrame;
     bool result = await handleEventLoopCallback();
     if (result)
       _ensureEventLoopCallback();
