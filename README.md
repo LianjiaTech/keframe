@@ -17,8 +17,8 @@
    
 Language: English | [中文简体](README-ZH.md)
 
-[![null-safe](https://img.shields.io/badge/nullsafe-2.0.1-brightgreen)](https://pub.dev/packages/keframe)
-[![null-safe](https://img.shields.io/badge/normal-1.0.1-brightgreen)](https://pub.dev/packages/keframe)
+[![null-safe](https://img.shields.io/badge/nullsafe-2.0.2-brightgreen)](https://pub.dev/packages/keframe)
+[![null-safe](https://img.shields.io/badge/normal-1.0.2-brightgreen)](https://pub.dev/packages/keframe)
 [![GitHub stars](https://img.shields.io/github/stars/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/stargazers)
 [![GitHub license](https://img.shields.io/github/license/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/blob/master/LICENSE)
 
