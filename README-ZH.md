@@ -25,6 +25,8 @@ Language: [English](README.md) | 中文简体
 [![GitHub stars](https://img.shields.io/github/stars/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/stargazers)
 [![GitHub license](https://img.shields.io/github/license/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/blob/master/LICENSE)
 
+实际优化效果可查看 [Keframe 优化实践合集](https://juejin.cn/post/6984606303641403406)
+
 ### 列表流畅度优化
 
 这是一个通用的流畅度优化方案，通过分帧渲染优化由构建导致的卡顿，例如页面切换或者复杂列表快速滚动的场景。
