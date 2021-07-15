@@ -25,7 +25,6 @@ Language: [English](README.md) | 中文简体
 [![GitHub stars](https://img.shields.io/github/stars/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/stargazers)
 [![GitHub license](https://img.shields.io/github/license/LianjiaTech/keframe)](https://github.com/LianjiaTech/keframe/blob/master/LICENSE)
 
-实际优化效果可查看 [Keframe 优化实践合集](https://juejin.cn/post/6984606303641403406)
 
 ### 列表流畅度优化
 
@@ -62,6 +61,8 @@ Language: [English](README.md) | 中文简体
 
 | ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c0ce341f0a2d4fceb0ad123fd4834ce2~tplv-k3u1fbpfcp-watermark.image) | ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c571a755ac84f39b52d57a13856a243~tplv-k3u1fbpfcp-watermark.image) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+三位开发者的实际使用效果 [Keframe 优化实践合集](https://juejin.cn/post/6984606303641403406)
 
 ***
 
