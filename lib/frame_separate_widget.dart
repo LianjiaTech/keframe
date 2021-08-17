@@ -73,7 +73,7 @@ class _FrameSeparateWidgetState extends State<FrameSeparateWidget> {
           setState(() {
             result = widget.child;
           });
-      }, Priority.animation, id: widget.index);
+      }, Priority.animation, () => !mounted, id: widget.index);
     });
   }
 }

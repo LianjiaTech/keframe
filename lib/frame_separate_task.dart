@@ -78,8 +78,18 @@ class FrameSeparateTaskQueue {
     if (_hasRequestedAnEventLoopCallback) return;
     _hasRequestedAnEventLoopCallback = true;
     Timer.run(() {
+      _removeIgnoreTasks();
       _runTasks();
     });
+  }
+
+  void _removeIgnoreTasks() {
+    while (_taskQueue.isNotEmpty) {
+      if (!_taskQueue.first.canIgnore()) {
+        break;
+      }
+      _taskQueue.removeFirst();
+    }
   }
 
   // Scheduled by _ensureEventLoopCallback.
@@ -100,10 +110,11 @@ class FrameSeparateTaskQueue {
     _taskQueue.removeWhere((e) => condition(e));
   }
 
-  Future<T> scheduleTask<T>(TaskCallback<T> task, Priority priority,
+  Future<T> scheduleTask<T>(
+      TaskCallback<T> task, Priority priority, ValueGetter<bool> canIgnore,
       {String debugLabel, Flow flow, int id}) {
     final TaskEntry<T> entry =
-        TaskEntry<T>(task, priority.value, debugLabel, flow, id: id);
+        TaskEntry<T>(task, priority.value, canIgnore, debugLabel, flow, id: id);
     _addTask(entry);
     _ensureEventLoopCallback();
     return entry.completer.future;
@@ -123,7 +134,9 @@ class FrameSeparateTaskQueue {
 }
 
 class TaskEntry<T> {
-  TaskEntry(this.task, this.priority, this.debugLabel, this.flow, {this.id}) {
+  TaskEntry(
+      this.task, this.priority, this.canIgnore, this.debugLabel, this.flow,
+      {this.id}) {
     // ignore: prefer_asserts_in_initializer_lists
     assert(() {
       debugStack = StackTrace.current;
@@ -137,6 +150,7 @@ class TaskEntry<T> {
   final String debugLabel;
   final Flow flow;
   final int id;
+  final ValueGetter<bool> canIgnore;
   StackTrace debugStack;
   Completer<T> completer;
 
