@@ -84,11 +84,8 @@ class FrameSeparateTaskQueue {
   }
 
   void _removeIgnoreTasks() {
-    TaskEntry headerTaskEntry;
-
     while (_taskQueue.isNotEmpty) {
-      headerTaskEntry = _taskQueue.first;
-      if (!headerTaskEntry.canIgnore()) {
+      if (!_taskQueue.first.canIgnore()) {
         break;
       }
       _taskQueue.removeFirst();
