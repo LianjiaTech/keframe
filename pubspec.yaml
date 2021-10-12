@@ -1,6 +1,6 @@
 name: keframe
 description: Helps you improve the fluency of Flutter's app for any scenario
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/LianjiaTech/keframe
 
 environment:
