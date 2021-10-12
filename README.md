@@ -73,9 +73,9 @@ dependencies:
 
 Components distinguish only the normal and  null-safe versions
 
-The normal version uses : `1.0.2`
+The normal version uses : `1.0.3`
 
-The null-safe version uses ：`2.0.2`
+The null-safe version uses ：`2.0.3`
 
 
 #### Quick learning
