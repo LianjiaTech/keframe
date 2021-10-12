@@ -69,7 +69,7 @@ class FrameSeparateTaskQueue {
       }
       return _taskQueue.isNotEmpty;
     }
-    return false;
+    return true;
   }
 
   // Ensures that the scheduler services a task scheduled by [scheduleTask].
@@ -96,14 +96,9 @@ class FrameSeparateTaskQueue {
   void _runTasks() async {
     _hasRequestedAnEventLoopCallback = false;
     await SchedulerBinding.instance.endOfFrame;
-    bool result = await handleEventLoopCallback();
-    if (result)
+    if (await handleEventLoopCallback())
       _ensureEventLoopCallback();
-    else {
-      if (_taskQueue.isNotEmpty) {
-        _ensureEventLoopCallback();
-      }
-    }
+
   }
 
   void shuffleTask(bool Function(TaskEntry taskEntry) condition) {
