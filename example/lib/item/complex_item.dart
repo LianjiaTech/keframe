@@ -16,23 +16,45 @@ class _CellWidgetState extends State<CellWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(left: 20, right: 20),
       height: height,
-      color: widget.index % 2 == 0 ? Colors.red : Colors.blue,
+      color: (widget.index % 3 == 0)
+          ? Colors.lightGreen[300]
+          : (widget.index % 3 == 1)
+              ? Colors.lightGreen[500]
+              : Colors.lightGreen[700],
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Container(
             width: 30,
-            height: 20,
+            height: 30,
             child: Text('${widget.index}'),
           ),
           Container(
             width: 30,
-            height: 20,
+            height: 30,
             child: TextField(),
+            color: Colors.black26,
           ),
-          Container(width: 30, height: 20, child: TextField()),
-          Container(width: 30, height: 20, child: TextField()),
-          Container(width: 30, height: 20, child: TextField()),
+          Container(
+            width: 30,
+            height: 30,
+            child: TextField(),
+            color: Colors.black26,
+          ),
+          Container(
+            width: 30,
+            height: 30,
+            child: TextField(),
+            color: Colors.black26,
+          ),
+          Container(
+            width: 30,
+            height: 30,
+            child: TextField(),
+            color: Colors.black26,
+          ),
         ],
       ),
     );

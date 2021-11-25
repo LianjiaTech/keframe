@@ -38,7 +38,11 @@ class _ComplexListOptExample1State extends State<ComplexListOptExample1> {
               itemBuilder: (c, i) => FrameSeparateWidget(
                 index: i,
                 placeHolder: Container(
-                  color: i % 2 == 0 ? Colors.red : Colors.blue,
+                  color: (i % 3 == 0)
+                      ? Colors.lightGreen[300]
+                      : (i % 3 == 1)
+                          ? Colors.lightGreen[500]
+                          : Colors.lightGreen[700],
                   height: 60,
                 ),
                 child: CellWidget(
@@ -59,7 +63,7 @@ class _ComplexListOptExample1State extends State<ComplexListOptExample1> {
 
   Widget operateBar() {
     return Container(
-      height: 200,
+      height: 150,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,

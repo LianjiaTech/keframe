@@ -62,7 +62,7 @@ class _ComplexListOptExample5State extends State<ComplexListOptExample5> {
 
   Widget operateBar() {
     return Container(
-      height: 200,
+      height: 150,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
