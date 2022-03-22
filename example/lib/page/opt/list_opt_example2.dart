@@ -1,18 +1,20 @@
-import 'package:keframe/frame_separate_widget.dart';
-import 'package:keframe/logcat.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:keframe/frame_separate_widget.dart';
+import 'package:keframe/logcat.dart';
 
 import '../../item/complex_item.dart';
 import 'list_opt_example3.dart';
 
 class ComplexListOptExample2 extends StatefulWidget {
+  const ComplexListOptExample2({Key key}) : super(key: key);
+
   @override
-  _ComplexListOptExample2State createState() => _ComplexListOptExample2State();
+  ComplexListOptExample2State createState() => ComplexListOptExample2State();
 }
 
-class _ComplexListOptExample2State extends State<ComplexListOptExample2> {
+class ComplexListOptExample2State extends State<ComplexListOptExample2> {
   int childCount = 100;
 
   ScrollController scrollController;
@@ -29,7 +31,7 @@ class _ComplexListOptExample2State extends State<ComplexListOptExample2> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text('列表优化 2'),
+        title: const Text('列表优化 2'),
       ),
       body: Column(
         children: <Widget>[
@@ -38,14 +40,14 @@ class _ComplexListOptExample2State extends State<ComplexListOptExample2> {
               cacheExtent: 500,
               controller: scrollController,
               itemCount: childCount,
-              itemBuilder: (c, i) => FrameSeparateWidget(
+              itemBuilder: (BuildContext c, int i) => FrameSeparateWidget(
                 index: i,
                 placeHolder: Container(
-                  color: i % 2 == 0 ? Colors.red : Colors.blue,
+                  color: i.isEven ? Colors.red : Colors.blue,
                   height: 40,
                 ),
                 child: CellWidget(
-                  color: i % 2 == 0 ? Colors.red : Colors.blue,
+                  color: i.isEven ? Colors.red : Colors.blue,
                   index: i,
                 ),
               ),
@@ -58,25 +60,24 @@ class _ComplexListOptExample2State extends State<ComplexListOptExample2> {
   }
 
   Widget operateBar() {
-    logcat("operateBar build $scrollPos");
-    return Container(
+    logcat('operateBar build $scrollPos');
+    return SizedBox(
       height: 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Wrap(
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                   onPressed: () {
                     childCount += 20;
                     setState(() {});
                   },
-                  child: Text(
-                    "setState增加20",
+                  child: const Text(
+                    'setState增加20',
                     style: TextStyle(fontSize: 14),
                   )),
-              RaisedButton(
+              ElevatedButton(
                   onPressed: () {
                     scrollController.animateTo(scrollPos,
                         duration:
@@ -86,20 +87,21 @@ class _ComplexListOptExample2State extends State<ComplexListOptExample2> {
                     setState(() {});
                   },
                   child: Text(
-                    "滚动到$scrollPos位置",
-                    style: TextStyle(fontSize: 14),
+                    '滚动到$scrollPos位置',
+                    style: const TextStyle(fontSize: 14),
                   )),
             ],
           ),
-          Text(
+          const Text(
               '说明：当不确定实际 item 高度的时候，由于 placeHolder 和实际 item 高度不一致。所以会出现列表抖动的情况，参考下一个案例解决：'),
-          RaisedButton(
+          ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(CupertinoPageRoute(
-                    builder: (context) => ComplexListOptExample3()));
+                Navigator.of(context).push<void>(CupertinoPageRoute<void>(
+                    builder: (BuildContext context) =>
+                        const ComplexListOptExample3()));
               },
-              child: Text(
-                "跳转到 分帧优化3",
+              child: const Text(
+                '跳转到 分帧优化3',
                 style: TextStyle(fontSize: 14),
               ))
         ],

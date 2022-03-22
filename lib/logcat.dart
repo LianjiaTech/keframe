@@ -4,5 +4,5 @@ import 'package:flutter/cupertino.dart';
 const String bkFrame = 'BKFrame';
 
 void logcat(String info) {
-  debugPrint(bkFrame + "  " + info);
+  debugPrint('$bkFrame  $info');
 }

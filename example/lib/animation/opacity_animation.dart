@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class OpacityTansWidget extends StatefulWidget {
-  final Widget child;
-
   const OpacityTansWidget({Key key, this.child}) : super(key: key);
 
+  final Widget child;
+
   @override
-  _OpacityState createState() => _OpacityState();
+  OpacityState createState() => OpacityState();
 }
 
-class _OpacityState extends State<OpacityTansWidget>
+class OpacityState extends State<OpacityTansWidget>
     with TickerProviderStateMixin {
   AnimationController controller;
 
@@ -18,9 +18,8 @@ class _OpacityState extends State<OpacityTansWidget>
     super.initState();
 
     controller = AnimationController(
-        duration: Duration(milliseconds: 500),
+        duration: const Duration(milliseconds: 500),
         lowerBound: 0.5,
-        upperBound: 1.0,
         vsync: this);
     controller.forward();
   }

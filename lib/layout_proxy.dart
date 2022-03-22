@@ -7,30 +7,28 @@ import 'notification.dart';
 /// @date     5/7/21 11:53 AM
 /// @desc    Pass up the Size information of the child node
 class ItemSizeInfoNotifier extends SingleChildRenderObjectWidget {
-  final int? index;
-
   const ItemSizeInfoNotifier({
     Key? key,
     required this.index,
     required Widget? child,
   }) : super(key: key, child: child);
+  final int? index;
 
   @override
-  _InitialRenderSizeChangedWithCallback createRenderObject(
+  InitialRenderSizeChangedWithCallback createRenderObject(
       BuildContext context) {
-    return _InitialRenderSizeChangedWithCallback(
+    return InitialRenderSizeChangedWithCallback(
         onLayoutChangedCallback: (size) {
       LayoutInfoNotification(index, size).dispatch(context);
     });
   }
 }
 
-class _InitialRenderSizeChangedWithCallback extends RenderProxyBox {
-  _InitialRenderSizeChangedWithCallback({
+class InitialRenderSizeChangedWithCallback extends RenderProxyBox {
+  InitialRenderSizeChangedWithCallback({
     RenderBox? child,
     required this.onLayoutChangedCallback,
-  })  : assert(onLayoutChangedCallback != null),
-        super(child);
+  }) : super(child);
 
   final Function(Size size) onLayoutChangedCallback;
 

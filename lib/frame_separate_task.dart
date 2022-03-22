@@ -11,22 +11,22 @@ import 'logcat.dart';
 
 ///  By default, there is no limit to the size of the queue, so limit the size after setting maxTaskSize.
 ///
-///  Reference `SchedulerBinding`, each task has a priority, there are three categories: Idle Animation Touch.
+///  Reference [SchedulerBinding], each task has a priority, there are three categories: Idle Animation Touch.
 ///  Each frame takes the first task (FIFO) out of the queue and schedules it until the queue is empty.
-///  Use the `SchedulingStrategy` policy to determine whether the task should be executed:
+///  Use the [SchedulingStrategy] policy to determine whether the task should be executed:
 ///
 ///  If the policy is successful, the task is executed
 ///  If the policy fails, a scheduling attempt is made after the next frame is rendered
 class FrameSeparateTaskQueue {
+  FrameSeparateTaskQueue._();
+
   bool _hasRequestedAnEventLoopCallback = false;
   int maxTaskSize = 0;
-
-  FrameSeparateTaskQueue._();
 
   static FrameSeparateTaskQueue? _instance;
 
   static FrameSeparateTaskQueue? get instance {
-    if (_instance == null) _instance = FrameSeparateTaskQueue._();
+    _instance ??= FrameSeparateTaskQueue._();
     return _instance;
   }
 
@@ -72,8 +72,8 @@ class FrameSeparateTaskQueue {
     return true;
   }
 
-  // Ensures that the scheduler services a task scheduled by [scheduleTask].
-  void _ensureEventLoopCallback() async {
+  /// Ensures that the scheduler services a task scheduled by [scheduleTask].
+  Future<void> _ensureEventLoopCallback() async {
     assert(_taskQueue.isNotEmpty);
     if (_hasRequestedAnEventLoopCallback) return;
     _hasRequestedAnEventLoopCallback = true;
@@ -83,15 +83,15 @@ class FrameSeparateTaskQueue {
     });
   }
 
-  // Scheduled by _ensureEventLoopCallback.
-  void _runTasks() async {
+  /// Scheduled by _ensureEventLoopCallback.
+  Future<void> _runTasks() async {
     _hasRequestedAnEventLoopCallback = false;
     await SchedulerBinding.instance!.endOfFrame;
     if (await handleEventLoopCallback()) _ensureEventLoopCallback();
   }
 
   void shuffleTask(bool Function(TaskEntry taskEntry) condition) {
-    _taskQueue.removeWhere((e) => condition(e));
+    _taskQueue.removeWhere((TaskEntry e) => condition(e));
   }
 
   void _removeIgnoreTasks() {

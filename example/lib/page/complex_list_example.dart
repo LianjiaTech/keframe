@@ -4,11 +4,13 @@ import 'package:flutter/rendering.dart';
 import '../item/complex_item.dart';
 
 class ComplexListExample extends StatefulWidget {
+  const ComplexListExample({Key key}) : super(key: key);
+
   @override
-  _ComplexListExampleState createState() => _ComplexListExampleState();
+  ComplexListExampleState createState() => ComplexListExampleState();
 }
 
-class _ComplexListExampleState extends State<ComplexListExample> {
+class ComplexListExampleState extends State<ComplexListExample> {
   int childCount = 100;
 
   ScrollController scrollController;
@@ -25,7 +27,7 @@ class _ComplexListExampleState extends State<ComplexListExample> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text('listView'),
+        title: const Text('listView'),
       ),
       body: Column(
         children: <Widget>[
@@ -33,8 +35,8 @@ class _ComplexListExampleState extends State<ComplexListExample> {
             child: ListView.builder(
               controller: scrollController,
               itemCount: childCount,
-              itemBuilder: (c, i) => CellWidget(
-                color: i % 2 == 0 ? Colors.red : Colors.blue,
+              itemBuilder: (BuildContext c, int i) => CellWidget(
+                color: i.isEven ? Colors.red : Colors.blue,
                 index: i,
               ),
             ),
@@ -46,25 +48,24 @@ class _ComplexListExampleState extends State<ComplexListExample> {
   }
 
   Widget operateBar() {
-    return Container(
+    return SizedBox(
       height: 100,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Expanded(
             child: Wrap(
               children: <Widget>[
-                RaisedButton(
+                ElevatedButton(
                     onPressed: () {
                       childCount += 20;
                       setState(() {});
                     },
-                    child: Text(
-                      "setState增加20",
+                    child: const Text(
+                      'setState增加20',
                       style: TextStyle(fontSize: 14),
                     )),
-                RaisedButton(
+                ElevatedButton(
                     onPressed: () {
                       setState(() {});
                       scrollController.animateTo(scrollPos,
@@ -74,8 +75,8 @@ class _ComplexListExampleState extends State<ComplexListExample> {
                       scrollPos = scrollPos >= 6000 ? 0 : scrollPos + 1500;
                     },
                     child: Text(
-                      "滚动到$scrollPos位置",
-                      style: TextStyle(fontSize: 14),
+                      '滚动到$scrollPos位置',
+                      style: const TextStyle(fontSize: 14),
                     )),
               ],
             ),

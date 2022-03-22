@@ -1,16 +1,18 @@
-import 'package:example/animation/opacity_animation.dart';
-import 'package:keframe/frame_separate_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:keframe/frame_separate_widget.dart';
 
+import '../../animation/opacity_animation.dart';
 import '../../item/complex_item.dart';
 
 class ComplexListOptExample5 extends StatefulWidget {
+  const ComplexListOptExample5({Key key}) : super(key: key);
+
   @override
-  _ComplexListOptExample5State createState() => _ComplexListOptExample5State();
+  ComplexListOptExample5State createState() => ComplexListOptExample5State();
 }
 
-class _ComplexListOptExample5State extends State<ComplexListOptExample5> {
+class ComplexListOptExample5State extends State<ComplexListOptExample5> {
   int childCount = 100;
 
   ScrollController scrollController;
@@ -27,7 +29,7 @@ class _ComplexListOptExample5State extends State<ComplexListOptExample5> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text('列表优化 5'),
+        title: const Text('列表优化 5'),
       ),
       body: Column(
         children: <Widget>[
@@ -36,7 +38,7 @@ class _ComplexListOptExample5State extends State<ComplexListOptExample5> {
               cacheExtent: 500,
               controller: scrollController,
               itemCount: childCount,
-              itemBuilder: (c, i) => FrameSeparateWidget(
+              itemBuilder: (BuildContext c, int i) => FrameSeparateWidget(
                 index: i,
                 placeHolder: Container(
                   color: Colors.white,
@@ -44,7 +46,7 @@ class _ComplexListOptExample5State extends State<ComplexListOptExample5> {
                 ),
                 child: OpacityTansWidget(
                   child: CellWidget(
-                    color: i % 2 == 0 ? Colors.red : Colors.blue,
+                    color: i.isEven ? Colors.red : Colors.blue,
                     index: i,
                   ),
                 ),
@@ -52,8 +54,8 @@ class _ComplexListOptExample5State extends State<ComplexListOptExample5> {
             ),
           ),
           FrameSeparateWidget(
-            child: operateBar(),
             index: -1,
+            child: operateBar(),
           )
         ],
       ),
@@ -61,25 +63,24 @@ class _ComplexListOptExample5State extends State<ComplexListOptExample5> {
   }
 
   Widget operateBar() {
-    return Container(
+    return SizedBox(
       height: 150,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Expanded(
             child: Wrap(
               children: <Widget>[
-                RaisedButton(
+                ElevatedButton(
                     onPressed: () {
                       childCount += 20;
                       setState(() {});
                     },
-                    child: Text(
-                      "setState增加20",
+                    child: const Text(
+                      'setState增加20',
                       style: TextStyle(fontSize: 14),
                     )),
-                RaisedButton(
+                ElevatedButton(
                     onPressed: () {
                       scrollController.animateTo(scrollPos,
                           duration: Duration(
@@ -89,10 +90,10 @@ class _ComplexListOptExample5State extends State<ComplexListOptExample5> {
                       setState(() {});
                     },
                     child: Text(
-                      "滚动到$scrollPos位置",
-                      style: TextStyle(fontSize: 14),
+                      '滚动到$scrollPos位置',
+                      style: const TextStyle(fontSize: 14),
                     )),
-                Text('说明：结合渐变，位移等动画，可以让替换过程更加流畅'),
+                const Text('说明：结合渐变，位移等动画，可以让替换过程更加流畅'),
               ],
             ),
           )

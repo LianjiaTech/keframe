@@ -1,16 +1,18 @@
-import 'package:keframe/frame_separate_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:keframe/frame_separate_widget.dart';
 import 'package:keframe/size_cache_widget.dart';
 
 import '../../item/complex_item.dart';
 
 class ComplexListOptExample4 extends StatefulWidget {
+  const ComplexListOptExample4({Key key}) : super(key: key);
+
   @override
-  _ComplexListOptExample4State createState() => _ComplexListOptExample4State();
+  ComplexListOptExample4State createState() => ComplexListOptExample4State();
 }
 
-class _ComplexListOptExample4State extends State<ComplexListOptExample4> {
+class ComplexListOptExample4State extends State<ComplexListOptExample4> {
   int childCount = 100;
 
   ScrollController scrollController;
@@ -27,7 +29,7 @@ class _ComplexListOptExample4State extends State<ComplexListOptExample4> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text('列表优化 4'),
+        title: const Text('列表优化 4'),
       ),
       body: Column(
         children: <Widget>[
@@ -37,14 +39,14 @@ class _ComplexListOptExample4State extends State<ComplexListOptExample4> {
               child: ListView.builder(
                 controller: scrollController,
                 itemCount: childCount,
-                itemBuilder: (c, i) => FrameSeparateWidget(
+                itemBuilder: (BuildContext c, int i) => FrameSeparateWidget(
                   index: i,
                   placeHolder: Container(
-                    color: i % 2 == 0 ? Colors.red : Colors.blue,
+                    color: i.isEven ? Colors.red : Colors.blue,
                     height: 60,
                   ),
                   child: CellWidget(
-                    color: i % 2 == 0 ? Colors.red : Colors.blue,
+                    color: i.isEven ? Colors.red : Colors.blue,
                     index: i,
                   ),
                 ),
@@ -58,24 +60,23 @@ class _ComplexListOptExample4State extends State<ComplexListOptExample4> {
   }
 
   Widget operateBar() {
-    return Container(
+    return SizedBox(
       height: 200,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
           Wrap(
             children: <Widget>[
-              RaisedButton(
+              ElevatedButton(
                   onPressed: () {
                     childCount += 20;
                     setState(() {});
                   },
-                  child: Text(
-                    "setState增加20",
+                  child: const Text(
+                    'setState增加20',
                     style: TextStyle(fontSize: 14),
                   )),
-              RaisedButton(
+              ElevatedButton(
                   onPressed: () {
                     scrollController.animateTo(scrollPos,
                         duration:
@@ -85,12 +86,12 @@ class _ComplexListOptExample4State extends State<ComplexListOptExample4> {
                     setState(() {});
                   },
                   child: Text(
-                    "滚动到$scrollPos位置",
-                    style: TextStyle(fontSize: 14),
+                    '滚动到$scrollPos位置',
+                    style: const TextStyle(fontSize: 14),
                   )),
             ],
           ),
-          Text(
+          const Text(
               '说明：如果能粗略估计一屏上列表项的最大数量如 10，将 SizeCacheWidget 的 estimateCount 设置为 10*2。快速滚动场景构建响应更快，并且内存更稳定')
         ],
       ),
