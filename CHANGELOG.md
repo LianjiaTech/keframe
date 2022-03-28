@@ -6,3 +6,4 @@
 ## [2.0.1] - modify notification usage
 ## [2.0.2] - fix widget doesn't transform
 ## [2.0.3] - remove unnecessary task
+## [2.0.4] - improve code style
