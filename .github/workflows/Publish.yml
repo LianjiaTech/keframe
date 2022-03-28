@@ -16,7 +16,7 @@ jobs:
       - name: Publish
         uses: sakebook/actions-flutter-pub-publisher@v1.3.0
         with:
-          credential: ${{ secrets.CREDENTIAL_JSON }}
+          credential: ${{ secrets.CREDENTIALS }}
           flutter_package: true
           skip_test: true
           dry_run: false
