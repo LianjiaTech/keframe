@@ -8,3 +8,4 @@
 ## [2.0.3] - remove unnecessary task
 ## [2.0.4] - improve code style
 ## [2.0.5] - add export file
+## [2.0.6] - format code
