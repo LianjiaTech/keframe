@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:keframe/frame_separate_widget.dart';
-import 'package:keframe/logcat.dart';
+import 'package:keframe/keframe.dart';
+
 
 import '../../item/complex_item.dart';
 import 'list_opt_example3.dart';

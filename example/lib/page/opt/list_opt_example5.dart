@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:keframe/frame_separate_widget.dart';
+import 'package:keframe/keframe.dart';
 
 import '../../animation/opacity_animation.dart';
 import '../../item/complex_item.dart';
