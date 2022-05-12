@@ -68,7 +68,7 @@ class FrameSeparateWidgetState extends State<FrameSeparateWidget> {
   }
 
   void transformWidget() {
-    SchedulerBinding.instance!.addPostFrameCallback((Duration t) {
+    SchedulerBinding.instance.addPostFrameCallback((Duration t) {
       FrameSeparateTaskQueue.instance!.scheduleTask(() {
         if (mounted)
           setState(() {
