@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:fps_monitor/util/collection_util.dart';
@@ -29,12 +30,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       navigatorKey: globalKey,
       title: 'Keframe example',
+      showPerformanceOverlay: !kIsWeb,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      builder: (BuildContext ctx, Widget child) => CustomWidgetInspector(
-        child: child,
-      ),
+      builder: (BuildContext ctx, Widget child) {
+        if (kIsWeb) return child;
+        return CustomWidgetInspector(
+          child: child,
+        );
+      },
       home: const Home(),
     );
   }
