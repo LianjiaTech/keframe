@@ -40,7 +40,7 @@ class FrameSeparateTaskQueue {
     if (_taskQueue.isEmpty) return false;
     final TaskEntry<dynamic> entry = _taskQueue.first;
     if (schedulingStrategy(
-        priority: entry.priority, scheduler: SchedulerBinding.instance!)) {
+        priority: entry.priority, scheduler: SchedulerBinding.instance)) {
       try {
         _taskQueue.removeFirst();
         entry.run();
@@ -86,7 +86,7 @@ class FrameSeparateTaskQueue {
   /// Scheduled by _ensureEventLoopCallback.
   Future<void> _runTasks() async {
     _hasRequestedAnEventLoopCallback = false;
-    await SchedulerBinding.instance!.endOfFrame;
+    await SchedulerBinding.instance.endOfFrame;
     if (await handleEventLoopCallback()) _ensureEventLoopCallback();
   }
 

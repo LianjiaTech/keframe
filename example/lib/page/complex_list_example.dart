@@ -27,7 +27,7 @@ class ComplexListExampleState extends State<ComplexListExample> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('listView'),
+        title: const Text('Complex ListView'),
       ),
       body: Column(
         children: <Widget>[
@@ -62,7 +62,7 @@ class ComplexListExampleState extends State<ComplexListExample> {
                       setState(() {});
                     },
                     child: const Text(
-                      'setState增加20',
+                      'setState increase 20 items',
                       style: TextStyle(fontSize: 14),
                     )),
                 ElevatedButton(
@@ -75,7 +75,7 @@ class ComplexListExampleState extends State<ComplexListExample> {
                       scrollPos = scrollPos >= 6000 ? 0 : scrollPos + 1500;
                     },
                     child: Text(
-                      '滚动到$scrollPos位置',
+                      'Scroll to $scrollPos offset',
                       style: const TextStyle(fontSize: 14),
                     )),
               ],

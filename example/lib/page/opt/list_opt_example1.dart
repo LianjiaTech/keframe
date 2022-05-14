@@ -28,7 +28,7 @@ class ComplexListOptExample1State extends State<ComplexListOptExample1> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('列表优化 1'),
+        title: const Text('Optimization example（Optimization example） 1'),
       ),
       body: Column(
         children: <Widget>[
@@ -78,7 +78,7 @@ class ComplexListOptExample1State extends State<ComplexListOptExample1> {
                       setState(() {});
                     },
                     child: const Text(
-                      'setState增加20',
+                      'setState increase 20 items',
                       style: TextStyle(fontSize: 14),
                     )),
                 ElevatedButton(
@@ -91,9 +91,11 @@ class ComplexListOptExample1State extends State<ComplexListOptExample1> {
                       setState(() {});
                     },
                     child: Text(
-                      '滚动到$scrollPos位置',
+                      'Scroll to $scrollPos offset',
                       style: const TextStyle(fontSize: 14),
                     )),
+                const Text(
+                    '''Note: Nest the FrameSeparateWidget in the ListView.builder and in the action area at the bottom. If you know the width and height of the actual item, it's best to keep the placeholder consistent. If the actual item itself is complex, you can nest frame components in multiple layers within the item. This scenario suggests setting the ListView's cacheExtent to a larger size, such as 500'''),
                 const Text(
                     '说明：将分帧组件嵌套在 builder 以及底部的操作区域。如果已知实际 item 的宽高信息，最好让 placeholder 保持一致。如果实际的 item 本身比较复杂，可以在 item 中多层嵌套分帧组件。这种场景建议将 ListView 的 cacheExtent 设置大一点如 500'),
               ],

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:keframe/keframe.dart';
 
-
 import '../../item/complex_item.dart';
 
 class ComplexListOptExample3 extends StatefulWidget {
@@ -29,7 +28,7 @@ class ComplexListOptExample3State extends State<ComplexListOptExample3> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('列表优化 3'),
+        title: const Text('Optimization example 3'),
       ),
       body: Column(
         children: <Widget>[
@@ -76,7 +75,7 @@ class ComplexListOptExample3State extends State<ComplexListOptExample3> {
                     setState(() {});
                   },
                   child: const Text(
-                    'setState增加20',
+                    'setState increase 20 items',
                     style: TextStyle(fontSize: 14),
                   )),
               ElevatedButton(
@@ -89,11 +88,13 @@ class ComplexListOptExample3State extends State<ComplexListOptExample3> {
                     setState(() {});
                   },
                   child: Text(
-                    '滚动到$scrollPos位置',
+                    'Scroll to $scrollPos offset',
                     style: const TextStyle(fontSize: 14),
                   )),
             ],
           ),
+          const Text(
+              'Note: Set an approximate height to the placeholder when you are not sure of the actual item height. We also nested the ListView in the SizeCacheWidget. Refer to lazy loading schemes such as H5 to set the size of the placeholders for the rendered widgets. During scrolling, rendered items will not jump. '),
           const Text(
               '说明：当不确定实际 item 高度的时候，给 placeholder 设置一个近似的高度。并且在将 ListView 嵌套在 SizeCacheWidget 中。参考一些延迟加载方案，如 H5 的做法，对于已渲染过的 widget 设置占位的尺寸。在滚动过程中，已经渲染过的 item 将不会出现跳动情况。')
         ],
