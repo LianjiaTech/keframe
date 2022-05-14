@@ -29,7 +29,7 @@ class ComplexListOptExample5State extends State<ComplexListOptExample5> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('列表优化 5'),
+        title: const Text('Optimization example 5'),
       ),
       body: Column(
         children: <Widget>[
@@ -77,7 +77,7 @@ class ComplexListOptExample5State extends State<ComplexListOptExample5> {
                       setState(() {});
                     },
                     child: const Text(
-                      'setState增加20',
+                      'setState increase 20 items',
                       style: TextStyle(fontSize: 14),
                     )),
                 ElevatedButton(
@@ -90,10 +90,12 @@ class ComplexListOptExample5State extends State<ComplexListOptExample5> {
                       setState(() {});
                     },
                     child: Text(
-                      '滚动到$scrollPos位置',
+                      'Scroll to $scrollPos offset',
                       style: const TextStyle(fontSize: 14),
                     )),
-                const Text('说明：结合渐变，位移等动画，可以让替换过程更加流畅'),
+                const Text(
+                    'Note: Combine with gradient, displacement and other animations to make the replacement process more smooth'),
+                const Text('说明：结合渐变，位移等动画，可以让替换过程更加流畅')
               ],
             ),
           )

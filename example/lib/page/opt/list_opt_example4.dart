@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:keframe/keframe.dart';
 
-
 import '../../item/complex_item.dart';
 
 class ComplexListOptExample4 extends StatefulWidget {
@@ -29,7 +28,7 @@ class ComplexListOptExample4State extends State<ComplexListOptExample4> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('列表优化 4'),
+        title: const Text('Optimization example 4'),
       ),
       body: Column(
         children: <Widget>[
@@ -73,7 +72,7 @@ class ComplexListOptExample4State extends State<ComplexListOptExample4> {
                     setState(() {});
                   },
                   child: const Text(
-                    'setState增加20',
+                    'setState increase 20 items',
                     style: TextStyle(fontSize: 14),
                   )),
               ElevatedButton(
@@ -86,13 +85,15 @@ class ComplexListOptExample4State extends State<ComplexListOptExample4> {
                     setState(() {});
                   },
                   child: Text(
-                    '滚动到$scrollPos位置',
+                    'Scroll to $scrollPos offset',
                     style: const TextStyle(fontSize: 14),
                   )),
             ],
           ),
           const Text(
-              '说明：如果能粗略估计一屏上列表项的最大数量如 10，将 SizeCacheWidget 的 estimateCount 设置为 10*2。快速滚动场景构建响应更快，并且内存更稳定')
+              'Note: If the maximum number of list items on a screen can be roughly estimated as 10, set the estimateCount for SizeCacheWidget to 10*2. Fast scroll scenario builds are more responsive and memory stable'),
+          const Text(
+              '说明：如果能粗略估计一屏上列表项的最大数量如 10，将 SizeCacheWidget 的 estimateCount 设置为 10*2。快速滚动场景构建响应更快，并且内存更稳定'),
         ],
       ),
     );

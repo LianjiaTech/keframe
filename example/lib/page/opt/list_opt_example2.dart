@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:keframe/keframe.dart';
 
-
 import '../../item/complex_item.dart';
 import 'list_opt_example3.dart';
 
@@ -31,7 +30,7 @@ class ComplexListOptExample2State extends State<ComplexListOptExample2> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: const Text('列表优化 2'),
+        title: const Text('Optimization example 2'),
       ),
       body: Column(
         children: <Widget>[
@@ -62,7 +61,7 @@ class ComplexListOptExample2State extends State<ComplexListOptExample2> {
   Widget operateBar() {
     logcat('operateBar build $scrollPos');
     return SizedBox(
-      height: 200,
+      height: 220,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -74,7 +73,7 @@ class ComplexListOptExample2State extends State<ComplexListOptExample2> {
                     setState(() {});
                   },
                   child: const Text(
-                    'setState增加20',
+                    'setState increase 20 items',
                     style: TextStyle(fontSize: 14),
                   )),
               ElevatedButton(
@@ -87,13 +86,15 @@ class ComplexListOptExample2State extends State<ComplexListOptExample2> {
                     setState(() {});
                   },
                   child: Text(
-                    '滚动到$scrollPos位置',
+                    'Scroll to $scrollPos offset',
                     style: const TextStyle(fontSize: 14),
                   )),
             ],
           ),
           const Text(
-              '说明：当不确定实际 item 高度的时候，由于 placeHolder 和实际 item 高度不一致。所以会出现列表抖动的情况，参考下一个案例解决：'),
+              '说明：不确定实际 item 高度的时候，由于 placeHolder 和实际 item 高度不一致，所以出现列表抖动，参考下一个案例'),
+          const Text(
+              'Note: When the actual item height is not certain, due to the placeHolder and the actual item height is inconsistent. Therefore, list jitter will occur. Refer to the next case for solution:'),
           ElevatedButton(
               onPressed: () {
                 Navigator.of(context).push<void>(CupertinoPageRoute<void>(
@@ -101,7 +102,7 @@ class ComplexListOptExample2State extends State<ComplexListOptExample2> {
                         const ComplexListOptExample3()));
               },
               child: const Text(
-                '跳转到 分帧优化3',
+                'Jump to next case',
                 style: TextStyle(fontSize: 14),
               ))
         ],
