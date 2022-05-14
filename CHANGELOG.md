@@ -9,3 +9,5 @@
 ## [2.0.4] - improve code style
 ## [2.0.5] - add export file
 ## [2.0.6] - format code
+
+## [3.0.0] - adapted 3.0
