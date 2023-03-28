@@ -15,10 +15,10 @@ class FrameSeparateWidget extends StatefulWidget {
     Key? key,
     this.index,
     this.placeHolder,
-    required this.child,
+    required this.builder,
   }) : super(key: key);
 
-  final Widget child;
+  final WidgetBuilder builder;
 
   /// The placeholder widget sets components that are as close to the actual widget as possible
   final Widget? placeHolder;
@@ -72,7 +72,7 @@ class FrameSeparateWidgetState extends State<FrameSeparateWidget> {
       FrameSeparateTaskQueue.instance!.scheduleTask(() {
         if (mounted)
           setState(() {
-            result = widget.child;
+            result = widget.builder(context);
           });
       }, Priority.animation, () => !mounted, id: widget.index);
     });
