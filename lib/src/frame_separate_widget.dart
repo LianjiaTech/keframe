@@ -15,9 +15,33 @@ class FrameSeparateWidget extends StatefulWidget {
     Key? key,
     this.index,
     this.placeHolder,
-    required this.child,
+    @Deprecated(
+      'Migrate to builder. '
+      'This feature was deprecated after 3.0.1',
+    )
+        required this.child,
+    this.builder,
   }) : super(key: key);
 
+  factory FrameSeparateWidget.builder({
+    Key? key,
+    int? index,
+    Widget? placeHolder,
+    required WidgetBuilder builder,
+  }) =>
+      FrameSeparateWidget(
+        index: index,
+        key: key,
+        placeHolder: placeHolder,
+        builder: builder,
+        child: const SizedBox.shrink(),
+      );
+
+  /// The widget below this widget in the tree.
+  @Deprecated(
+    'Migrate to builder. '
+    'This feature was deprecated after 3.0.1',
+  )
   final Widget child;
 
   /// The placeholder widget sets components that are as close to the actual widget as possible
@@ -25,6 +49,10 @@ class FrameSeparateWidget extends StatefulWidget {
 
   /// Identifies its own ID, used in a scenario where size information is stored
   final int? index;
+
+  /// Signature for a function that creates a widget.
+  /// The builder has a higher priority, prioritize using builder before child.
+  final WidgetBuilder? builder;
 
   @override
   FrameSeparateWidgetState createState() => FrameSeparateWidgetState();
@@ -70,10 +98,11 @@ class FrameSeparateWidgetState extends State<FrameSeparateWidget> {
   void transformWidget() {
     SchedulerBinding.instance.addPostFrameCallback((Duration t) {
       FrameSeparateTaskQueue.instance!.scheduleTask(() {
-        if (mounted)
+        if (mounted) {
           setState(() {
-            result = widget.child;
+            result = widget.builder?.call(context) ?? widget.child;
           });
+        }
       }, Priority.animation, () => !mounted, id: widget.index);
     });
   }
