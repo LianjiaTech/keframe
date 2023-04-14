@@ -46,8 +46,6 @@ class SizeCacheWidgetState extends State<SizeCacheWidget> {
       builder: (BuildContext ctx) {
         return NotificationListener<LayoutInfoNotification>(
           onNotification: (LayoutInfoNotification notification) {
-            logcat(
-                'size info :  index = ${notification.index}  size = ${notification.size.toString()}');
             saveLayoutInfo(notification.index, notification.size);
             return true;
           },
