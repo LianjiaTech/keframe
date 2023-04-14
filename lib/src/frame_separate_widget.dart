@@ -72,7 +72,6 @@ class FrameSeparateWidgetState extends State<FrameSeparateWidget> {
     Size? itemSize;
     if (size != null && size.containsKey(widget.index)) {
       itemSize = size[widget.index];
-      logcat('cache hit：${widget.index} ${itemSize.toString()}');
     }
     if (itemSize != null) {
       result = SizedBox(
